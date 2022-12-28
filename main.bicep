@@ -43,7 +43,6 @@ module systemTopic 'modules/systemTopicResource.bicep' = {
     managementGroupId: managementGroupId
     eventSubscriptionResourceName: eventSubscriptionResourceName
     triggerSecret: triggerSecret
-    //endpointUrl: listCallbackURL('${resourceId('Microsoft.Logic/workflows/', workflowResourceName)}/triggers/manual', '2019-05-01').value
     endpointUrl: workflow.outputs.workflowTriggerUrl
     policyDefinitionIds: policyDefinitionIds
   }
