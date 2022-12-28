@@ -5,6 +5,7 @@ param eventSubscriptionResourceNamePrefix string = 'triggerWebhook'
 param managementGroupId string = 'a6e09f1d-1f05-497b-b499-da099ced752f'
 param policyDefinitionIds array = [
   '/providers/microsoft.management/managementgroups/${managementGroupId}/providers/microsoft.authorization/policydefinitions/deploy_nsg_rule'
+  '/providers/Microsoft.Management/managementGroups/${managementGroupId}/providers/Microsoft.Authorization/policyDefinitions/24f807db-7447-44a6-8fe2-600385b2752d'
 ]
 @secure()
 param triggerSecret string = newGuid() // generate a string to include in the post headers and used as condition in the webhook.
