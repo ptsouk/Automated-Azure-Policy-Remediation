@@ -231,3 +231,4 @@ resource workflowResource 'Microsoft.Logic/workflows@2019-05-01' = {
 }
 
 output workflowIdentity string = workflowResource.identity.principalId
+output workflowTriggerUrl string = listCallbackURL('${workflowResource.id}/triggers/manual', workflowResource.apiVersion).value

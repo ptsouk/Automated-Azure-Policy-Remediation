@@ -1,11 +1,11 @@
 param location string = resourceGroup().location
-param workflowResourceNamePrefix string = 'PolicyRemediationWorkflow'
-param systemTopicResourceNamePrefix string = 'EventGridPolicyTopic'
+param workflowResourceNamePrefix string = 'PolicyRemediationWorkflow01'
+param systemTopicResourceNamePrefix string = 'EventGridPolicyTopic01'
 param eventSubscriptionResourceNamePrefix string = 'triggerWebhook'
-param managementGroupId string = tenant().tenantId
+param managementGroupId string = 'a6e09f1d-1f05-497b-b499-da099ced752f'
 param policyDefinitionIds array = [
   '/providers/microsoft.management/managementgroups/${managementGroupId}/providers/microsoft.authorization/policydefinitions/deploy_nsg_rule'
-] // provide a list of policy definitions to include in the event subscription filters
+]
 @secure()
 param triggerSecret string = newGuid() // generate a string to include in the post headers and used as condition in the webhook.
 
@@ -43,7 +43,8 @@ module systemTopic 'modules/systemTopicResource.bicep' = {
     managementGroupId: managementGroupId
     eventSubscriptionResourceName: eventSubscriptionResourceName
     triggerSecret: triggerSecret
-    endpointUrl: listCallbackURL('${resourceId('Microsoft.Logic/workflows/', workflowResourceName)}/triggers/manual', '2019-05-01').value
+    //endpointUrl: listCallbackURL('${resourceId('Microsoft.Logic/workflows/', workflowResourceName)}/triggers/manual', '2019-05-01').value
+    endpointUrl: workflow.outputs.workflowTriggerUrl
     policyDefinitionIds: policyDefinitionIds
   }
 }

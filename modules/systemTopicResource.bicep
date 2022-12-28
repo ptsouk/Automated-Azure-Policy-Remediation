@@ -84,7 +84,7 @@ resource eventSubscriptionResource 'Microsoft.EventGrid/systemTopics/eventSubscr
       advancedFilters: [
         {
           values: policyDefinitionIds
-          operatorType: 'StringIn'
+          operatorType: 'StringContains'
           key: 'data.policyDefinitionId'
         }
         {
