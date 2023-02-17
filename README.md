@@ -1,4 +1,4 @@
-# Automated-Azure-Policy-Remediation
+# Automated Azure Policy Remediation
 
 An example of using Event Grid to Trigger a Policy remediation workflow implemented with logic app
 
