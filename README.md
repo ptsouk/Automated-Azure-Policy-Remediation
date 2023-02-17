@@ -9,7 +9,7 @@ An example of using Event Grid to Trigger a Policy remediation workflow implemen
 
 ## Deploy with PowerShell
 
-The required resources and configuration for the implementation is included in the bicep template.
+The required resources and configuration for the implementation are deployed with a bicep template.
 
 ```New-AzResourceGroupDeployment -Name deploymentName -ResourceGroupName resourceGroupName -TemplateFile .\main.bicep -DeploymentDebugLogLevel "All" -Verbose```
 
